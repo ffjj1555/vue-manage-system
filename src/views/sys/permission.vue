@@ -25,7 +25,7 @@
 <script setup lang="ts" name="permission">
 import { ref } from 'vue';
 import { ElTree } from 'element-plus';
-import { usePermissStore } from '../store/permiss';
+import { usePermissStore } from '@/store/permiss';
 
 const role = ref<string>('admin');
 
@@ -89,10 +89,6 @@ const data: Tree[] = [
 	{
 		id: '10',
 		label: '自定义图标'
-	},
-	{
-		id: '11',
-		label: 'schart图表'
 	},
 
 	{

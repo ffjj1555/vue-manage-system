@@ -4,7 +4,9 @@ import VueSetupExtend from 'vite-plugin-vue-setup-extend';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
-export default defineConfig({
+import path from "path";
+
+	export default defineConfig({
 	base: './',
 	plugins: [
 		vue(),
@@ -16,7 +18,27 @@ export default defineConfig({
 			resolvers: [ElementPlusResolver()]
 		})
 	],
-	optimizeDeps: {
-		include: ['schart.js']
-	}
+	resolve: {
+		alias: {
+		  '@': path.resolve('./src') // @代替src
+		}
+	  },
+	server:{
+		hmr: { overlay: false},
+		proxy: {
+			'/api': {
+				target: 'http://127.0.0.1:8888',
+				changeOrigin: true,
+				rewrite: (path) => path.replace(/^\/api/, '')
+				
+			},
+			'/mhapi': {
+				target: 'https://api.myhostex.com',
+				changeOrigin: true,
+				rewrite: (path) => path.replace(/^\/mhapi/, '')
+				
+			},
+		}
+
+	},
 });

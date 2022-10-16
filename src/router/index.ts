@@ -1,112 +1,126 @@
 import {createRouter, createWebHashHistory, RouteRecordRaw} from "vue-router";
 import { usePermissStore } from '../store/permiss'
-import Home from "../views/home.vue";
+import Home from "../views/sys/home.vue";
 
 const routes:RouteRecordRaw[] = [
     {
         path: '/',
-        redirect: '/dashboard'
+        redirect: '/dashboard/Workbench'
     }, {
         path: "/",
         name: "Home",
         component: Home,
         children: [
             {
-                path: "/dashboard",
-                name: "dashboard",
+                path: "/dashboard/Workbench",
+                name: "dashboard/Workbench",
                 meta: {
-                    title: '系统首页',
+                    title: '工作台',
                     permiss: '1'
                 },
-                component: () => import ( /* webpackChunkName: "dashboard" */ "../views/dashboard.vue")
-            }, {
-                path: "/table",
-                name: "basetable",
+                component: () => import ( /* webpackChunkName: "/dashboard/Workbench" */ "@/views/dashboard/workbench/index.vue")
+            },
+            {
+                path: '/dashboard/analysis',
+                name: "dashboard/analysis",
                 meta: {
-                    title: '表格',
-                    permiss: '2'
+                    title: '分析报告',
+                    permiss: '1'
                 },
-                component: () => import ( /* webpackChunkName: "table" */ "../views/table.vue")
-            }, {
-                path: "/charts",
-                name: "basecharts",
+                component: () => import ( /* webpackChunkName: "dashboard/analysis" */ "@/views/dashboard/analysis/index.vue")
+            },
+            {
+                path: "/Sales/Workbench",
+                name: "Sales/Workbench",
                 meta: {
-                    title: '图表',
-                    permiss: '11'
+                    title: '工作台',
+                    permiss: '1'
                 },
-                component: () => import ( /* webpackChunkName: "charts" */ "../views/charts.vue")
-            }, {
-                path: "/form",
-                name: "baseform",
+                component: () => import ( /* webpackChunkName: "/Sales/Workbench" */ "@/views/Sales/workbench/index.vue")
+            },
+            {
+                path: '/Sales/analysis',
+                name: "Sales/analysis",
                 meta: {
-                    title: '表单',
-                    permiss: '5'
+                    title: '分析报告',
+                    permiss: '1'
                 },
-                component: () => import ( /* webpackChunkName: "form" */ "../views/form.vue")
-            }, {
-                path: "/tabs",
-                name: "tabs",
+                component: () => import ( /* webpackChunkName: "dashboard/analysis" */ "@/views/Sales/analysis/index.vue")
+            },
+            {
+                path: '/Sales/channel',
+                name: "Sales/channel",
                 meta: {
-                    title: 'tab标签',
-                    permiss: '3'
+                    title: '销售渠道',
+                    permiss: '1'
                 },
-                component: () => import ( /* webpackChunkName: "tabs" */ "../views/tabs.vue")
-            }, {
-                path: "/donate",
-                name: "donate",
+                component: () => import ( /* webpackChunkName: "dashboard/channel" */ "@/views/Sales/channel/index.vue")
+            },
+            {
+                path: '/Sales/channelPrice',
+                name: "Sales/channelPrice",
                 meta: {
-                    title: '鼓励作者',
-                    permiss: '14'
+                    title: '渠道价格',
+                    permiss: '1'
                 },
-                component: () => import ( /* webpackChunkName: "donate" */ "../views/donate.vue")
-            }, {
-                path: "/permission",
-                name: "permission",
+                component: () => import ( /* webpackChunkName: "dashboard/channelPrice" */ "@/views/Sales/channelPrice/index.vue")
+            },
+            {
+                path: '/Sales/backstagePrice',
+                name: "Sales/backstagePrice",
                 meta: {
-                    title: '权限管理',
-                    permiss: '13'
+                    title: '后台价格',
+                    permiss: '1'
                 },
-                component: () => import ( /* webpackChunkName: "permission" */ "../views/permission.vue")
-            }, {
-                path: "/upload",
-                name: "upload",
+                component: () => import ( /* webpackChunkName: "dashboard/backstagePrice" */ "@/views/Sales/backstagePrice/index.vue")
+            },
+            {
+                path: '/Sales/available',
+                name: "Sales/available",
                 meta: {
-                    title: '上传插件',
-                    permiss: '6'
+                    title: '房态',
+                    permiss: '1'
                 },
-                component: () => import ( /* webpackChunkName: "upload" */ "../views/upload.vue")
-            }, {
-                path: "/icon",
-                name: "icon",
+                component: () => import ( /* webpackChunkName: "dashboard/available" */ "@/views/Sales/available/index.vue")
+            },
+            {
+                path: "/Houses/Workbench",
+                name: "Houses/Workbench",
                 meta: {
-                    title: '自定义图标',
-                    permiss: '10'
+                    title: '工作台',
+                    permiss: '1'
                 },
-                component: () => import ( /* webpackChunkName: "icon" */ "../views/icon.vue")
-            },  {
-                path: '/user',
-                name: 'user',
+                component: () => import ( /* webpackChunkName: "/Houses/Workbench" */ "@/views/Houses/workbench/index.vue")
+            },
+            {
+                path: '/Houses/analysis',
+                name: "Houses/analysis",
                 meta: {
-                    title: '个人中心'
+                    title: '分析报告',
+                    permiss: '1'
                 },
-                component: () => import (/* webpackChunkName: "user" */ '../views/user.vue')
-            }, {
-                path: '/editor',
-                name: 'editor',
+                component: () => import ( /* webpackChunkName: "dashboard/analysis" */ "@/views/Houses/analysis/index.vue")
+            },
+            {
+                path: '/test/AccessToken_myhostex',
+                name: "test/AccessToken_myhostex",
                 meta: {
-                    title: '富文本编辑器',
-                    permiss: '8'
+                    title: 'AccessToken_myhostex',
+                    permiss: '1'
                 },
-                component: () => import (/* webpackChunkName: "editor" */ '../views/editor.vue')
-            }, {
-                path: '/markdown',
-                name: 'markdown',
+                component: () => import ( /* webpackChunkName: "test/AccessToken_myhostex" */ "@/views/test/AccessToken_myhostex/index.vue")
+            },
+            {
+                path: '/test/myhostex_price',
+                name: "test/myhostex_price",
                 meta: {
-                    title: 'markdown编辑器',
-                    permiss: '9'
+                    title: 'myhostex_price',
+                    permiss: '1'
                 },
-                component: () => import (/* webpackChunkName: "markdown" */ '../views/markdown.vue')
-            }
+                component: () => import ( /* webpackChunkName: "test/AccessToken_myhostex" */ "@/views/test/myhostex_price/index.vue")
+            },
+
+
         ]
     }, {
         path: "/login",
@@ -114,14 +128,14 @@ const routes:RouteRecordRaw[] = [
         meta: {
             title: '登录'
         },
-        component: () => import ( /* webpackChunkName: "login" */ "../views/login.vue")
+        component: () => import ( /* webpackChunkName: "login" */ "../views/sys/login.vue")
     }, {
         path: '/403',
         name: '403',
         meta: {
             title: '没有权限'
         },
-        component: () => import (/* webpackChunkName: "403" */ '../views/403.vue')
+        component: () => import (/* webpackChunkName: "403" */ '../views/sys/error-log/403.vue')
     },
 ];
 

@@ -101,12 +101,12 @@
 		<el-row :gutter="20">
 			<el-col :span="12">
 				<el-card shadow="hover">
-					<schart ref="bar" class="schart" canvasId="bar" :options="options"></schart>
+					<!-- <schart ref="bar" class="schart" canvasId="bar" :options="options"></schart> -->
 				</el-card>
 			</el-col>
 			<el-col :span="12">
 				<el-card shadow="hover">
-					<schart ref="line" class="schart" canvasId="line" :options="options2"></schart>
+					<!-- <schart ref="line" class="schart" canvasId="line" :options="options2"></schart> -->
 				</el-card>
 			</el-col>
 		</el-row>
@@ -114,9 +114,9 @@
 </template>
 
 <script setup lang="ts" name="dashboard">
-import Schart from 'vue-schart';
+// import Schart from 'vue-schart';
 import { reactive } from 'vue';
-import imgurl from '../assets/img/img.jpg';
+import imgurl from '@/assets/img/img.jpg';
 
 const name = localStorage.getItem('ms_username');
 const role: string = name === 'admin' ? '超级管理员' : '普通用户';

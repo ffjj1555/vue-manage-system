@@ -52,87 +52,107 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useSidebarStore } from '../store/sidebar';
+import { useSidebarStore } from '@/store/sidebar';
 import { useRoute } from 'vue-router';
 
 const items = [
 	{
 		icon: 'Odometer',
-		index: '/dashboard',
+		index: '1',
 		title: '系统首页',
-		permiss: '1'
+		permiss: '1',
+		subs: [
+			{
+				index: '/dashboard/Workbench',
+				title: '工作台',
+				permiss: '1'
+			},
+			{
+				index: '/dashboard/analysis',
+				title: '分析报告',
+				permiss: '1'
+			},
+		]
 	},
 	{
-		icon: 'Calendar',
-		index: '/table',
-		title: '基础表格',
-		permiss: '2'
+		icon: 'Odometer',
+		index: '2',
+		title: '销售管理',
+		permiss: '2',
+		subs: [
+			{
+				index: '/Sales/workbench',
+				title: '工作台',
+				permiss: '2'
+			},
+			{
+				index: '/Sales/analysis',
+				title: '分析报告',
+				permiss: '2'
+			},
+			{
+				index: '/Sales/channel',
+				title: '销售渠道',
+				permiss: '2'
+			},
+			{
+				index: '/Sales/channelPrice',
+				title: '渠道价格',
+				permiss: '2'
+			},
+			{
+				index: '/Sales/backstagePrice',
+				title: '后台价格',
+				permiss: '2'
+			},
+			{
+				index: '/Sales/available',
+				title: '房态',
+				permiss: '2'
+			},
+		]
 	},
 	{
-		icon: 'DocumentCopy',
-		index: '/tabs',
-		title: 'tab选项卡',
-		permiss: '3'
+		icon: 'Odometer',
+		index: '3',
+		title: '房源管理',
+		permiss: '3',
+		subs: [
+			{
+				index: '/Houses/workbench',
+				title: '工作台',
+				permiss: '3'
+			},
+			{
+				index: '/Houses/analysis',
+				title: '分析报告',
+				permiss: '3'
+			},
+		]
 	},
 	{
 		icon: 'Edit',
-		index: '3',
-		title: '表单相关',
-		permiss: '4',
+		index: '19',
+		title: '功能测试',
+		permiss: '16',
 		subs: [
 			{
-				index: '/form',
-				title: '基本表单',
-				permiss: '5'
+				index: '/test/AccessToken_myhostex',
+				title: 'AccessToken',
+				permiss: '19'
+			},
+			{
+				index: '/test/myhostex_price',
+				title: 'myhostex_price',
+				permiss: '19'
 			},
 			{
 				index: '/upload',
 				title: '文件上传',
-				permiss: '6'
+				permiss: '19'
 			},
-			{
-				index: '4',
-				title: '三级菜单',
-				permiss: '7',
-				subs: [
-					{
-						index: '/editor',
-						title: '富文本编辑器',
-						permiss: '8'
-					},
-					{
-						index: '/markdown',
-						title: 'markdown编辑器',
-						permiss: '9'
-					}
-				]
-			}
 		]
 	},
-	{
-		icon: 'Setting',
-		index: '/icon',
-		title: '自定义图标',
-		permiss: '10'
-	},
-	{
-		icon: 'PieChart',
-		index: '/charts',
-		title: 'schart图表',
-		permiss: '11'
-	},
-	{
-		icon: 'Warning',
-		index: '/permission',
-		title: '权限管理',
-		permiss: '13'
-	},
-	{
-		icon: 'CoffeeCup',
-		index: '/donate',
-		title: '支持作者',
-		permiss: '14'
-	}
 ];
 
 const route = useRoute();
@@ -156,7 +176,7 @@ const sidebar = useSidebarStore();
 	width: 0;
 }
 .sidebar-el-menu:not(.el-menu--collapse) {
-	width: 250px;
+	width: 180;
 }
 .sidebar > ul {
 	height: 100%;
